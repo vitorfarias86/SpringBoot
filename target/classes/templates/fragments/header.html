@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header-css">
+    <link href="bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link href="../../static/css/main.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+<div class="container">
+    <div th:fragment="header-content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/empregado/findall}">Empregados</a></li>
+                        <li><a href="#" th:href="@{/departamento/findall}">Departamentos</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css">
+</head>
+<body>
+	<div th:include="fragments/header :: header-content"></div>
+	<div class="container">
+		<div id="lista-empregados">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Departamento</th>
+					</tr>
+				</thead>
+				<tr th:each="empregados : ${empregados}">
+					<td><span th:text="${empregados.id}"> </span></td>
+					<td><span th:text="${empregados.nome}"> </span></td>
+					<td><span th:text="${empregados.departamento.nome}"> </span></td>
+					<td><span th:text="${empregados.departamento.nome}"> </span></td>
+				</tr>
+			</table>
+		</div>
+		<div id="form-empregado">
+			<form th:action="@{/empregado/save}" method="post">
+				Nome : <input id="nome" type="text" th:field="${empregado.nome}" />    
+         		<br/>
+         		Departamento :  
+         		<select id="id_departamento" >
+    					<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.nome}"></option>
+				</select>
+         		<br/>
+         		<input type="submit" value="Save" />
+			
+			</form>
+		</div>
+	</div>
+</body>
+</html>

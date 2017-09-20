@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css">
+</head>
+<body>
+	<div th:include="fragments/header :: header-content"></div>
+	<div class="container">
+	<div id="lista-empregados">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+				</tr>
+			</thead>
+			<tr th:each="departamento : ${departamento}">
+				<td><span th:text="${departamento.id}"> </span></td>
+				<td><span th:text="${departamento.nome}"> </span></td>
+			</tr>
+		</table>
+	</div>
+	</div>
+</body>
+</html>
