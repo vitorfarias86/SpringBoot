@@ -4,7 +4,8 @@
 </head>
 <body>
 	<div th:include="fragments/header :: header-content"></div>
-	<div class="container">
+	<div class="container-fluid">
+		<div class="col-md-12"> <a href="#" th:href="@{/empregado/show}" class="btn btn-primary pull-right h2">Novo Empregado</a></div>
 		<div id="lista-empregados">
 			<table class="table table-hover">
 				<thead>
@@ -18,22 +19,10 @@
 					<td><span th:text="${empregados.id}"> </span></td>
 					<td><span th:text="${empregados.nome}"> </span></td>
 					<td><span th:text="${empregados.departamento.nome}"> </span></td>
-					<td><span th:text="${empregados.departamento.nome}"> </span></td>
+					<td><a href="#" th:href="@{/empregado/edit/{id}(id=${empregados.id})}"><spam class="glyphicon glyphicon-edit"> </spam></a></td>
+					<td><a href="#" th:href="@{/empregado/delete/{id}(id=${empregados.id})}"><spam class="glyphicon glyphicon-trash"> </spam></a></td>
 				</tr>
 			</table>
-		</div>
-		<div id="form-empregado">
-			<form th:action="@{/empregado/save}" method="post">
-				Nome : <input id="nome" type="text" th:field="${empregado.nome}" />    
-         		<br/>
-         		Departamento :  
-         		<select id="id_departamento" >
-    					<option th:each="departamento : ${departamentos}" th:value="${departamento.id}" th:text="${departamento.nome}"></option>
-				</select>
-         		<br/>
-         		<input type="submit" value="Save" />
-			
-			</form>
 		</div>
 	</div>
 </body>

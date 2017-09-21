@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css">
+</head>
+<body>
+	<div th:include="fragments/header :: header-content"></div>
+	<div class="container-fluid">
+		<div id="form-empregado" class="row">
+			<form th:action="@{/empregado/save}" method="post">
+				<div class="form-group col-md-4">
+					<label for="nome">Nome:</label>
+					<input id="nome" type="text" th:field="${empregado.nome}" />
+					<span th:if="${#fields.hasErrors('empregado.nome')}" th:errors="${empregado.nome}"></span>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="deparatamentoid">Departamento:</label>
+					<select id="deparatamento" th:field="${empregado.departamento}">
+						<option value=""> --Selecione --</option>
+						<option th:each="departamento : ${todosDepartamentos}"
+							th:value="${departamento}" th:text="${departamento.nome}"></option>
+					</select>
+					<span th:if="${#fields.hasErrors('empregado.departamento')}" th:errors="${empregado.departamento}"></span>
+				</div>
+				<button type="submit" class="btn-primary">Salvar</button>
+				<a href="#" th:href="@{/empregado/findall}" class="btn-default">Voltar </a>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

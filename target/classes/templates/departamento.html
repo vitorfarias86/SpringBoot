@@ -4,21 +4,38 @@
 </head>
 <body>
 	<div th:include="fragments/header :: header-content"></div>
-	<div class="container">
-	<div id="lista-empregados">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Nome</th>
+	
+	<div class="container-fluid">
+		<div class="row">		
+			<div class="col-md-12"> 
+				<a href="#" th:href="@{/departamento/show}" class="btn btn-primary pull-right h2">Novo Departamento</a>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="col-md-12"> 
+				
+				<label for="dept-sem-emp">Total de Departamentos sem Empregado(s):</label>
+			    	<spam id="dept-sem-emp" th:text="${departamentoSemEmpregado}" ></spam>
+			 </div>
+		</div>			
+		<div id="lista-departamentos">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</tr>
+				</thead>
+				<tr th:each="departamento : ${departamentos}">
+					<td><span th:text="${departamento.id}"> </span></td>
+					<td><span th:text="${departamento.nome}"> </span></td>
+					<td><a href="#" th:href="@{/departamento/edit/{id}(id=${departamento.id})}"><spam class="glyphicon glyphicon-edit"> </spam></a></td>
+					<td><a href="#" th:href="@{/departamento/delete/{id}(id=${departamento.id})}"><spam class="glyphicon glyphicon-trash"> </spam></a></td>
 				</tr>
-			</thead>
-			<tr th:each="departamento : ${departamento}">
-				<td><span th:text="${departamento.id}"> </span></td>
-				<td><span th:text="${departamento.nome}"> </span></td>
-			</tr>
-		</table>
-	</div>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
