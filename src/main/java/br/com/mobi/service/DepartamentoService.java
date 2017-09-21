@@ -3,10 +3,11 @@ package br.com.mobi.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.mobi.model.Departamento;
 import br.com.mobi.repository.DepartamentoRepository;
-
+@Service
 public class DepartamentoService {
 	@Autowired
 	private DepartamentoRepository departamentoRepository;

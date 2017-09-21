@@ -3,10 +3,11 @@ package br.com.mobi.service;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.mobi.model.Empregado;
 import br.com.mobi.repository.EmpregadoRepository;
-
+@Service
 public class EmpregadoService implements Serializable{
 	/**
 	 * 
